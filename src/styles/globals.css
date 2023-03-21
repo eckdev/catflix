@@ -114,6 +114,11 @@ a {
 
 .embla {
   padding: 0;
+  width: 100vw;
+  height: calc(100vw * 0.5625);
+  z-index: 0;
+  position: relative;
+  margin-bottom: -190px;
 }
 .embla__viewport {
   overflow: hidden;
@@ -130,45 +135,14 @@ a {
   padding-left: var(--slide-spacing);
   position: relative;
   height: 100%;
-  transition: all .5s;
+  transition: all 0.5s;
 }
 .embla__slide__img {
   display: block;
   width: 100%;
   object-fit: cover;
 }
-.embla__slide__number {
-  width: 4.6rem;
-  height: 4.6rem;
-  z-index: 1;
-  position: absolute;
-  top: 0.6rem;
-  right: 0.6rem;
-  border-radius: 50%;
-  background-color: rgba(var(--background-site-rgb-value), 0.85);
-  line-height: 4.6rem;
-  font-weight: 900;
-  text-align: center;
-  pointer-events: none;
-}
-.embla__slide__number > span {
-  color: var(--brand-primary);
-  background-image: linear-gradient(
-    45deg,
-    var(--brand-primary),
-    var(--brand-secondary)
-  );
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-size: 1.6rem;
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
+
 .embla__dot,
 .embla__button {
   -webkit-appearance: none;
@@ -181,11 +155,11 @@ a {
   padding: 0;
   margin: 0;
 }
-.embla_dots_container{
+.embla_dots_container {
   position: absolute;
-bottom: 80px;
-left: 75px;
-text-align: left !important;
+  bottom: 20px;
+  left: 75px;
+  text-align: left !important;
 }
 .embla__dots {
   z-index: 1;
@@ -194,7 +168,6 @@ text-align: left !important;
   padding: 0;
   margin: 0;
   margin-top: 20px;
-
 }
 .embla__dot {
   width: 3rem;
@@ -213,66 +186,40 @@ text-align: left !important;
 .embla__dot--selected:after {
   background: #fff;
 }
-.embla__button {
-  z-index: 1;
-  color: var(--background-site);
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  top: 50%;
-  transform: translateY(-50%);
-  cursor: pointer;
-  width: 4rem;
-  height: 4rem;
-}
-.embla__button--prev {
-  left: 1.6rem;
-}
-.embla__button--next {
-  right: 1.6rem;
-}
-.embla__button:disabled {
-  opacity: 0.3;
-}
-.embla__button__svg {
-  width: 65%;
-  height: 65%;
-}
 
 .embla_text {
   position: absolute;
-  bottom: 130px;
+  bottom: 280px;
   width: 80%;
-  left: 75px;
+  left: 100px;
   z-index: 2;
 }
 
-.embla_title{
-  font-family: 'Roboto', sans-serif;
+.embla_title {
+  font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: 700;
   margin-bottom: 1vh;
   color: #fff;
   overflow: hidden;
   font-size: 3.7rem;
-line-height: 1.1em;
-max-height: 2.3em;
+  line-height: 1.1em;
+  max-height: 2.3em;
 }
 
-.embla_paragraph{
-  font-family: 'Roboto', sans-serif;
-  letter-spacing: .2px;
+.embla_paragraph {
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 0.2px;
   margin-top: 0;
   color: #fff;
   overflow: hidden;
   margin-bottom: 7px;
   font-size: 1.2rem;
-line-height: 28px;
-max-height: 59px;
+  line-height: 28px;
+  max-height: 59px;
 }
 
-.embla_slider_overlay{
+.embla_slider_overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -280,7 +227,7 @@ max-height: 59px;
   width: 100%;
 }
 
-.overlay_item_left{
+.overlay_item_left {
   position: inherit;
   left: 0px;
   top: 0px;
@@ -288,7 +235,7 @@ max-height: 59px;
   height: 100%;
   background: linear-gradient(90deg, #000000 -0.9%, rgba(0, 0, 0, 0) 100%);
 }
-.overlay_item_bottom{
+.overlay_item_bottom {
   position: inherit;
   left: 0px;
   bottom: 0%;

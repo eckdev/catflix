@@ -246,7 +246,7 @@ a {
   height: 50%;
   background: linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
 }
-.navigation_buttons{
+.navigation_buttons {
   width: 40px;
   height: 40px;
 }
@@ -254,5 +254,29 @@ a {
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .embla {
+    margin-bottom: 0;
+  }
+  .embla_text {
+    bottom: 30px;
+    left: 60px;
+    font-size: .7rem;
+  }
+  .embla_title {
+    font-size: 1.7rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .embla_dots_container{
+    bottom: 0;
+    left: 35px;
+  }
+  .embla__dot{
+    width: 18px !important;
   }
 }

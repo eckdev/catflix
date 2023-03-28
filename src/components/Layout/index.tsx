@@ -10,6 +10,7 @@ const Layout: FC<LayoutProps> = ({ children }) => {
     <div className="ml-auto w-full">
       <Navbar />
       <>{children}</>
+      <footer className="flex h-12 items-end justify-center text-xs font-medium text-neutral-500"><span className="mt-1">Made with love</span></footer>
     </div>
   );
 };

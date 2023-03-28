@@ -9,7 +9,7 @@ const Navbar = (props: Props) => {
       <div className="w-1/2 h-full">
         <div className="ml-6 mt-4 h-16">
           <Image
-            src="/next.svg"
+            src="/cat.png"
             alt="Vercel Logo"
             width={100}
             height={80}

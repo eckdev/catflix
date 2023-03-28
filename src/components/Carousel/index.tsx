@@ -4,10 +4,13 @@ import Image from "next/image";
 import { Roboto } from "next/font/google";
 import React, { useState, useEffect, useCallback } from "react";
 import { DotButton } from "./CarouselNavigations";
+import { GetServerSideProps } from "next";
+import axios from "@/utils/axios.js";
 
 type PropType = {
   slides: number[];
   options?: EmblaOptionsType;
+  videos: Record<string,any>
 };
 
 const roboto = Roboto({
@@ -17,7 +20,8 @@ const roboto = Roboto({
 });
 
 const Carousel: React.FC<PropType> = (props) => {
-  const { slides, options } = props;
+  const { slides, options,videos } = props;
+  console.log('videos',videos)
   const [emblaRef, emblaApi] = useEmblaCarousel(options, [
     emblaCarouselAutoplay(),
   ]);
@@ -47,13 +51,11 @@ const Carousel: React.FC<PropType> = (props) => {
       <div className="embla">
         <div className="embla__viewport" ref={emblaRef}>
           <div className="embla__container">
-            {slides.map((index) => (
-              <div className="embla__slide" key={index}>
+            {videos.map((item,index) => (
+              <div className="embla__slide" key={item.id.videoId}>
                 <Image
                   className="embla__slide__img"
-                  src={
-                    "https://cdn.ssportplus.com/1/3165/s1GZZhTd3T57/s1GZZhTd3T57.jpg"
-                  }
+                  src={item.snippet.thumbnails.default.url}
                   width={800}
                   height={200}
                   quality={100}
@@ -61,10 +63,10 @@ const Carousel: React.FC<PropType> = (props) => {
                 />
                 <div className="embla_text">
                   <h1 className={`${roboto.className} embla_title`}>
-                    Test Text
+                    {item.snippet.title}
                   </h1>
                   <p className={`${roboto.className} embla_paragraph`}>
-                    Test Desc
+                    {item.snippet.description}
                   </p>
                 </div>
                 <div className="embla_slider_overlay">
@@ -90,5 +92,6 @@ const Carousel: React.FC<PropType> = (props) => {
     </>
   );
 };
+
 
 export default Carousel;

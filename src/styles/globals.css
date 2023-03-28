@@ -256,7 +256,11 @@ a {
     color-scheme: dark;
   }
 }
-
+@media only screen and (min-width: 1200px) {
+  .embla__slide__img{
+    max-height: 800px;
+  }
+}
 @media only screen and (max-width: 600px) {
   .embla {
     margin-bottom: 0;

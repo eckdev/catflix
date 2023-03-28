@@ -3,7 +3,7 @@ import useEmblaCarousel, { EmblaOptionsType } from "embla-carousel-react";
 import Image from "next/image";
 import { Roboto } from "next/font/google";
 import React, { useState, useEffect, useCallback } from "react";
-import { DotButton } from "./Dots";
+import { DotButton } from "./CarouselNavigations";
 
 type PropType = {
   slides: number[];

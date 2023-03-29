@@ -251,6 +251,24 @@ a {
   height: 40px;
 }
 
+.video-wrapper {
+  position: relative;
+  padding-top: 56.25%;
+}
+.react-player{
+  z-index: 99;
+  padding-left: 8px;
+  padding-right: 8px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.react-player > div {
+  position: absolute; 
+}
+
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

@@ -4,8 +4,8 @@ import Image from "next/image";
 import { Roboto } from "next/font/google";
 import React, { useState, useEffect, useCallback } from "react";
 import { DotButton } from "./CarouselNavigations";
-import { GetServerSideProps } from "next";
-import axios from "@/utils/axios.js";
+import Link from "next/link";
+import { PlayCircleIcon } from "@heroicons/react/24/solid";
 
 type PropType = {
   slides: number[];
@@ -13,15 +13,9 @@ type PropType = {
   videos: Record<string,any>
 };
 
-const roboto = Roboto({
-  weight: ["400", "700"],
-  style: ["normal", "italic"],
-  subsets: ["latin"],
-});
-
 const Carousel: React.FC<PropType> = (props) => {
   const { slides, options,videos } = props;
-  console.log('videos',videos)
+  console.log(videos)
   const [emblaRef, emblaApi] = useEmblaCarousel(options, [
     emblaCarouselAutoplay(),
   ]);
@@ -52,22 +46,28 @@ const Carousel: React.FC<PropType> = (props) => {
         <div className="embla__viewport" ref={emblaRef}>
           <div className="embla__container">
             {videos.map((item,index) => (
-              <div className="embla__slide" key={item.id.videoId}>
+              <div className="embla__slide" key={index}>
                 <Image
                   className="embla__slide__img"
                   src={item.snippet.thumbnails.default.url}
                   width={800}
                   height={200}
                   quality={100}
-                  alt="Your alt text"
+                  alt={item.snippet.title}
                 />
                 <div className="embla_text">
-                  <h1 className={`${roboto.className} embla_title`}>
+                  <h1 className={`embla_title`}>
                     {item.snippet.title}
                   </h1>
-                  <p className={`${roboto.className} embla_paragraph`}>
+                  <p className={`embla_paragraph`}>
                     {item.snippet.description}
                   </p>
+                  <Link href={`/video/${item.id.videoId}`}>
+                    <button type="button" className="text-white flex items-center bg-indigo-500 cursor-pointer p-2 rounded-lg" >
+                    Play <PlayCircleIcon className="hover:animate-bounce h-10 w-10 ml-1 text-white"/>
+                    </button>
+                    
+                  </Link>
                 </div>
                 <div className="embla_slider_overlay">
                   <div className="overlay_item_left"></div>

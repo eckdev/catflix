@@ -10,10 +10,10 @@ const SLIDE_COUNT = 5;
 const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
 export default function Home({videos}:Record<string,any>) {
   return (
-    <main className="relative flex flex-col">
+    <>
       <Carousel slides={SLIDES} options={OPTIONS} videos={videos.slice(0,5)} />
       <Suggestions />
-    </main>
+    </>
   );
 }
 

@@ -1,47 +1,54 @@
-import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
-import Image from 'next/image';
-import React from 'react'
+import { ChevronLeftIcon, ChevronRightIcon, PlayCircleIcon } from "@heroicons/react/24/solid";
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
 
-type Props = {}
-const SLIDES = Array.from(Array(10).keys());
+type Props = {
+  videos: Record<string, any>;
+};
+
 const Suggestions = (props: Props) => {
+  const { videos } = props;
+  console.log(videos)
   return (
-    <div className='relative flex items-center'>
-    <button
-    className="opacity-50 cursor-pointer hover:opacity-100"
-    onClick={() => {
-      let slider = document.getElementById('slider') as HTMLElement;
-      slider.scrollLeft = slider.scrollLeft - 500;
-    }}
-  >
-  <ChevronLeftIcon className="h-10 w-10 text-white"/>
-  </button>
-      <div
-        id='slider'
-        className='w-full h-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide'
+    <div className="relative flex items-center">
+      <button
+        className="opacity-50 cursor-pointer hover:opacity-100"
+        onClick={() => {
+          let slider = document.getElementById("slider") as HTMLElement;
+          slider.scrollLeft = slider.scrollLeft - 500;
+        }}
       >
-        {SLIDES.map((item) => (
-          <Image
-          key={item}
-            className='w-[220px] inline-block p-2 cursor-pointer hover:scale-105 ease-in-out duration-300'
-            src="https://cdn.ssportplus.com/1/3165/s1GZZhTd3T57/s1GZZhTd3T57.jpg"
-            alt='/'
-            width={220}
-            height={200}
-          />
+        <ChevronLeftIcon className="h-10 w-10 text-white" />
+      </button>
+      <div
+        id="slider"
+        className="w-full h-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide"
+      >
+        {videos.map((item, index) => (
+          <Link href={`/video/${item.id.videoId}`} key={index}>
+            <Image
+              className="w-[220px] h-[150px] inline-block p-2 cursor-pointer hover:scale-105 ease-in-out duration-300"
+              src={item.snippet.thumbnails.medium.url}
+              alt={item.snippet.title}
+              width={220}
+              height={170}
+              
+            />
+          </Link>
         ))}
       </div>
       <button
-    className=""
-    onClick={() => {
-      let slider = document.getElementById('slider') as HTMLElement;
-      slider.scrollLeft = slider.scrollLeft + 500;
-    }}
-  >
-  <ChevronRightIcon className="h-10 w-10 text-white"/>
-  </button>
+        className=""
+        onClick={() => {
+          let slider = document.getElementById("slider") as HTMLElement;
+          slider.scrollLeft = slider.scrollLeft + 500;
+        }}
+      >
+        <ChevronRightIcon className="h-10 w-10 text-white" />
+      </button>
     </div>
-  )
-}
+  );
+};
 
-export default Suggestions
+export default Suggestions;

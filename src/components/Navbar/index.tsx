@@ -10,7 +10,7 @@ const Navbar = (props: Props) => {
         <div className="ml-6 mt-4 h-16">
           <Image
             src="/cat.png"
-            alt="Vercel Logo"
+            alt="Cat Logo"
             width={100}
             height={80}
             priority

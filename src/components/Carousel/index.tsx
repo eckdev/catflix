@@ -8,14 +8,12 @@ import Link from "next/link";
 import { PlayCircleIcon } from "@heroicons/react/24/solid";
 
 type PropType = {
-  slides: number[];
   options?: EmblaOptionsType;
   videos: Record<string,any>
 };
 
 const Carousel: React.FC<PropType> = (props) => {
-  const { slides, options,videos } = props;
-  console.log(videos)
+  const { options,videos } = props;
   const [emblaRef, emblaApi] = useEmblaCarousel(options, [
     emblaCarouselAutoplay(),
   ]);
@@ -49,7 +47,7 @@ const Carousel: React.FC<PropType> = (props) => {
               <div className="embla__slide" key={index}>
                 <Image
                   className="embla__slide__img"
-                  src={item.snippet.thumbnails.default.url}
+                  src={item.snippet.thumbnails.high.url}
                   width={800}
                   height={200}
                   quality={100}

@@ -1,0 +1,1 @@
+type IRecord = Record<string,any>

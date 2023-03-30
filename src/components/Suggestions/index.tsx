@@ -9,9 +9,10 @@ type Props = {
 
 const Suggestions = (props: Props) => {
   const { videos } = props;
-  console.log(videos)
   return (
-    <div className="relative flex items-center">
+    <>
+    <span className=" pl-10 mb-8 font-bold text-lg relative text-left text-white uppercase">Related Videos</span>
+    <div className="relative flex items-center"> 
       <button
         className="opacity-50 cursor-pointer hover:opacity-100"
         onClick={() => {
@@ -25,7 +26,7 @@ const Suggestions = (props: Props) => {
         id="slider"
         className="w-full h-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide"
       >
-        {videos.map((item, index) => (
+        {videos.map((item:Record<string,any>, index:number) => (
           <Link href={`/video/${item.id.videoId}`} key={index}>
             <Image
               className="w-[220px] h-[150px] inline-block p-2 cursor-pointer hover:scale-105 ease-in-out duration-300"
@@ -48,6 +49,7 @@ const Suggestions = (props: Props) => {
         <ChevronRightIcon className="h-10 w-10 text-white" />
       </button>
     </div>
+    </>
   );
 };
 

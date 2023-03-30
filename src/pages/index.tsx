@@ -3,7 +3,6 @@ import { EmblaOptionsType } from "embla-carousel";
 import Suggestions from "@/components/Suggestions";
 import { GetServerSideProps } from "next";
 import axios from "@/utils/axios";
-import shuffle from '@/utils/shuffle'
 
 const OPTIONS: EmblaOptionsType = {};
 export default function Home({videos}:Record<string,any>) {
@@ -22,7 +21,6 @@ export const getServerSideProps: GetServerSideProps = async () => {
         maxResults: 25
     }
   })
-  const data = shuffle(videos.data.items)
 
   return {
     props: {

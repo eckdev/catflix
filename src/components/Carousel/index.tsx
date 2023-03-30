@@ -43,7 +43,7 @@ const Carousel: React.FC<PropType> = (props) => {
       <div className="embla">
         <div className="embla__viewport" ref={emblaRef}>
           <div className="embla__container">
-            {videos.map((item,index) => (
+            {videos.map((item:IRecord,index:number) => (
               <div className="embla__slide" key={index}>
                 <Image
                   className="embla__slide__img"
@@ -53,6 +53,7 @@ const Carousel: React.FC<PropType> = (props) => {
                   quality={100}
                   alt={item.snippet.title}
                 />
+
                 <div className="embla_text">
                   <h1 className={`embla_title`}>
                     {item.snippet.title}
@@ -61,7 +62,7 @@ const Carousel: React.FC<PropType> = (props) => {
                     {item.snippet.description}
                   </p>
                   <Link href={`/video/${item.id.videoId}`}>
-                    <button type="button" className="text-white flex items-center bg-indigo-500 cursor-pointer p-2 rounded-lg" >
+                    <button type="button" className="text-white flex items-center bg-indigo-500 cursor-pointer p-2 rounded-md h-11 text-base" >
                     Play <PlayCircleIcon className="hover:animate-bounce h-10 w-10 ml-1 text-white"/>
                     </button>
                     
@@ -73,9 +74,9 @@ const Carousel: React.FC<PropType> = (props) => {
                 </div>
               </div>
             ))}
+            
           </div>
-        </div>
-        <div className="embla_dots_container">
+          <div className="embla_dots_container">
         <div className="embla__dots">
           {scrollSnaps.map((_, index) => (
             <DotButton
@@ -86,6 +87,8 @@ const Carousel: React.FC<PropType> = (props) => {
           ))}
         </div>
       </div>
+        </div>
+
       </div>
     </>
   );

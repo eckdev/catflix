@@ -14,10 +14,11 @@ const Suggestions = (props: Props) => {
   const { videos,id,title } = props;
   return (
     <>
-    <span className=" pl-10 mb-8 font-bold text-lg relative text-left text-white uppercase">{title}</span>
+    <span className=" pl-10 mb-4 font-bold text-lg relative text-left text-white uppercase">{title}</span>
     <div className="relative flex items-center mb-8"> 
       <button
         className="opacity-50 cursor-pointer hover:opacity-100"
+        aria-label="left icon"
         onClick={() => {
           let slider = document.getElementById(id) as HTMLElement;
           slider.scrollLeft = slider.scrollLeft - 500;
@@ -32,11 +33,12 @@ const Suggestions = (props: Props) => {
         {videos.map((item:Record<string,any>, index:number) => (
           <Link href={`/video/${item.id.videoId}`} key={index}>
             <Image
-              className="w-[220px] h-[150px] inline-block p-2 cursor-pointer hover:scale-105 ease-in-out duration-300"
+              className="w-[256px] h-[144px] inline-block p-2 cursor-pointer hover:scale-105 ease-in-out duration-300"
               src={item.snippet.thumbnails.medium.url}
               alt={item.snippet.title}
-              width={220}
-              height={170}
+              width={256}
+              height={144}
+              loading={'lazy'}
               
             />
           </Link>
@@ -44,6 +46,7 @@ const Suggestions = (props: Props) => {
       </div>
       <button
         className="opacity-50 cursor-pointer hover:opacity-100"
+        aria-label="right icon"
         onClick={() => {
           let slider = document.getElementById(id) as HTMLElement;
           slider.scrollLeft = slider.scrollLeft + 500;

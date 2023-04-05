@@ -3,11 +3,15 @@ import { EmblaOptionsType } from "embla-carousel";
 import Suggestions from "@/components/Suggestions";
 import { GetServerSideProps } from "next";
 import axios from "@/utils/axios";
+import Head from "next/head";
 
 const OPTIONS: EmblaOptionsType = {};
 export default function Home({ videos, birds,fish }: Record<string, any>) {
   return (
     <>
+    <Head>
+      <title>Catfliks | Free streaming for cats</title>
+    </Head>
       <Carousel options={OPTIONS} videos={videos.slice(0, 5)} />
       <Suggestions
         videos={videos.slice(5, 15)}

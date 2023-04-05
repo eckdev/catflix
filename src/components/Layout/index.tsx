@@ -42,6 +42,7 @@ const Layout: FC<LayoutProps> = ({ children }) => {
           href="https://github.com/eckdev/catflix"
           target="_blank"
           rel="noreferrer"
+          aria-label="Github"
           className="hover:opacity-80"
         >
           <svg

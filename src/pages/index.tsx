@@ -5,26 +5,48 @@ import { GetServerSideProps } from "next";
 import axios from "@/utils/axios";
 
 const OPTIONS: EmblaOptionsType = {};
-export default function Home({videos}:Record<string,any>) {
+export default function Home({ videos, birds,fish }: Record<string, any>) {
   return (
     <>
-      <Carousel options={OPTIONS} videos={videos.slice(0,5)} />
-      <Suggestions videos={videos.slice(5,15)} />
+      <Carousel options={OPTIONS} videos={videos.slice(0, 5)} />
+      <Suggestions
+        videos={videos.slice(5, 15)}
+        title="Related Videos"
+        id="related_videos"
+      />
+      <Suggestions videos={birds} title="Birds" id="birds" />
+      <Suggestions videos={fish} title="Fish" id="fish" />
     </>
   );
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const videos = await axios.get('search',{
+  const mainVideos = await axios.get("search", {
     params: {
-        q: 'cat tv for cats to watch',
-        maxResults: 25
-    }
-  })
+      q: "cat tv for cats to watch",
+      maxResults: 25,
+    },
+  });
+
+  const birds = await axios.get("search", {
+    params: {
+      q: "cat tv for cats to watch birds",
+      maxResults: 10,
+    },
+  });
+
+  const fish = await axios.get("search", {
+    params: {
+      q: "cat tv for cats to watch fish",
+      maxResults: 10,
+    },
+  });
 
   return {
     props: {
-      videos: videos.data.items
-    }
-  }
-}
+      videos: mainVideos.data.items,
+      birds: birds.data.items,
+      fish: fish.data.items,
+    },
+  };
+};

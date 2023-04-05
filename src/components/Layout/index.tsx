@@ -2,6 +2,8 @@ import { Roboto } from "next/font/google";
 import Link from "next/link";
 import React, { FC, ReactNode } from "react";
 import Navbar from "../Navbar";
+import { Analytics } from '@vercel/analytics/react';
+import { Metadata } from "next";
 
 interface LayoutProps {
   children: ReactNode;
@@ -12,6 +14,23 @@ const roboto = Roboto({
   style: ["normal", "italic"],
   subsets: ["latin"],
 });
+
+export const metadata: Metadata = {
+  title: 'Catfliks',
+  description: 'Free streaming videos of cats',
+  icons: [
+    {
+      url: '/favicon.ico',
+      type: 'image/svg+xml',
+    },
+  ],
+  openGraph: {
+    title: 'Catfliks',
+    description: 'Free streaming videos of cats',
+    url: 'https://catfliks.com',
+    type: 'website'
+  }
+};
 
 const Layout: FC<LayoutProps> = ({ children }) => {
   return (
@@ -35,6 +54,7 @@ const Layout: FC<LayoutProps> = ({ children }) => {
           </svg>
         </Link>
       </footer>
+      <Analytics />
     </div>
   );
 };

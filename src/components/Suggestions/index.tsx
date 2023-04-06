@@ -46,7 +46,7 @@ const Suggestions = (props: Props) => {
       </div>
       <button
         className="opacity-50 cursor-pointer hover:opacity-100"
-        aria-label="right icon"
+        aria-label="right icon button"
         onClick={() => {
           let slider = document.getElementById(id) as HTMLElement;
           slider.scrollLeft = slider.scrollLeft + 500;

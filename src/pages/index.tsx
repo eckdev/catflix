@@ -5,6 +5,7 @@ import { GetServerSideProps } from "next";
 import axios from "@/utils/axios";
 import Head from "next/head";
 import NodeCache from "node-cache";
+import searchYTData from "@/utils/search.js";
 
 const cache = new NodeCache();
 const OPTIONS: EmblaOptionsType = {};
@@ -32,7 +33,7 @@ export default function Home({
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getCachedData = () => {
   const mainVideosCachedData = cache.get("mainVideos");
   const birdsCachedData = cache.get("birds");
   const fishCachedData = cache.get("fish");
@@ -47,33 +48,14 @@ export const getServerSideProps: GetServerSideProps = async () => {
       },
     };
   }
-  const mainVideos = await axios.get("search", {
-    params: {
-      q: "cat tv for cats to watch",
-      maxResults: 25,
-    },
-  });
+};
 
-  const birds = await axios.get("search", {
-    params: {
-      q: "cat tv for cats to watch birds",
-      maxResults: 10,
-    },
-  });
-
-  const fish = await axios.get("search", {
-    params: {
-      q: "cat tv for cats to watch fish",
-      maxResults: 10,
-    },
-  });
-
-  const games = await axios.get("search", {
-    params: {
-      q: "cat tv for cats to watch games",
-      maxResults: 10,
-    },
-  });
+export const getServerSideProps: GetServerSideProps = async () => {
+  getCachedData();
+  const mainVideos = await searchYTData("cat tv for cats to watch", 25);
+  const birds = await searchYTData("cat tv for cats to watch birds", 10);
+  const fish = await searchYTData("cat tv for cats to watch fish", 10);
+  const games = await searchYTData("cat tv for cats to watch games", 10);
 
   cache.set("mainVideos", mainVideos.data.items);
   cache.set("birds", birds.data.items);

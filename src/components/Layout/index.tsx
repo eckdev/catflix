@@ -16,8 +16,8 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: 'Catfliks',
-  description: 'Free streaming videos of cats',
+  title: 'Catflix',
+  description: 'Discover the purr-fect cat tv platform! Stream free cat-centric videos,movies and relaxation content. Keep your feline friends entertained and relaxed with our cat tv platform.',
   icons: [
     {
       url: '/favicon.ico',
@@ -25,8 +25,8 @@ export const metadata: Metadata = {
     },
   ],
   openGraph: {
-    title: 'Catfliks',
-    description: 'Free streaming videos of cats',
+    title: 'Catflix',
+    description: 'Discover the purr-fect cat tv platform! Stream free cat-centric videos,movies and relaxation content. Keep your feline friends entertained and relaxed with our cat tv platform.',
     url: 'https://catfliks.com',
     type: 'website'
   }

@@ -2,11 +2,8 @@ import Carousel from "@/components/Carousel";
 import { EmblaOptionsType } from "embla-carousel";
 import Suggestions from "@/components/Suggestions";
 import { GetServerSideProps } from "next";
-import axios from "@/utils/axios";
 import Head from "next/head";
-import NodeCache from "node-cache";
-import searchYTData from "@/utils/search.js";
-import {collection,doc,getDoc,getDocs} from "firebase/firestore"
+import {doc,getDoc} from "firebase/firestore"
 import {db} from '../firebase'
 
 const OPTIONS: EmblaOptionsType = {};
@@ -19,7 +16,8 @@ export default function Home({
   return (
     <>
       <Head>
-        <title>Catflix | Free streaming for cats</title>
+        <title>Catflix | Free Streaming for Cats | Cat Entertainment Platform</title>
+        <meta name="description" content='Discover the purr-fect cat tv platform! Stream free cat-centric videos,movies and relaxation content. Keep your feline friends entertained and relaxed with our cat tv platform.'></meta>
       </Head>
       <Carousel options={OPTIONS} videos={videos.slice(0, 5)} />
       <Suggestions

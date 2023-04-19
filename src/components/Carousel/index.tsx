@@ -62,7 +62,7 @@ const Carousel: React.FC<PropType> = (props) => {
                   <Link href={`/video/${item.id.videoId}`}>
                     <button
                       type="button"
-                      className="text-white flex items-center bg-indigo-500 cursor-pointer p-2 rounded-md h-11 text-base"
+                      className="text-white flex items-center bg-red-600 cursor-pointer p-4 rounded-md text-base h-12 shadow-sm"
                       aria-label="play button"
                     >
                       Play{" "}

@@ -1,12 +1,12 @@
+import React from "react";
 import {
   ChevronLeftIcon,
   ChevronRightIcon,
-  PlayCircleIcon,
 } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import Link from "next/link";
-import { title } from "process";
-import React from "react";
+import HorizontalScroll from "react-basic-horizontal-scroll"
+
 
 type Props = {
   videos: Record<string, any>;
@@ -48,10 +48,11 @@ const Suggestions = (props: Props) => {
 
       <div className="relative flex items-center mb-8">
 
-        <div
+<div
           id={id}
           className="w-full h-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide"
         >
+          <HorizontalScroll>
           {videos.map((item: Record<string, any>, index: number) => (
             <Link href={`/video/${item.id.videoId}`} key={index}>
               <Image
@@ -64,7 +65,10 @@ const Suggestions = (props: Props) => {
               />
             </Link>
           ))}
+          </HorizontalScroll>
         </div>
+
+
 
       </div>
     </div>

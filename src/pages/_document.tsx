@@ -10,6 +10,7 @@ export default function Document() {
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1338120620743783"
           crossOrigin="anonymous"
         ></script>
+        <script defer data-domain="catfliks.com" src="https://plausible.io/js/script.js"></script>
       </Head>
       <body>
         <Main />

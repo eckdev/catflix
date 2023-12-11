@@ -106,6 +106,10 @@ a {
   transition: background-color .4s;
 }
 
+.fact-height{
+  height: 80vh;
+}
+
 .embla {
   padding: 0;
   width: 100vw;

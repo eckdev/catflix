@@ -107,7 +107,7 @@ a {
 }
 
 .fact-height{
-  height: 80vh;
+  height: 90vh;
 }
 
 .embla {
@@ -374,10 +374,18 @@ a {
   .play-button > svg {
     width: 20px;
   }
+
+  .fact-text {
+    font-size: 1.5rem !important;
+    line-height: 24px;
+  }
 }
 
 @media only screen and (max-width: 400px) {
   .embla_dots_container {
     bottom: -24px;
+  }
+  .navigation-tab {
+    margin-left: .5rem;
   }
 }

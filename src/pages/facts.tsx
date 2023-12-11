@@ -26,8 +26,8 @@ export default function Facts({ fact }: { fact: string }) {
         ></meta>
       </Head>
       <div className="fact-height">
-        <div className="flex flex-col bottom-0 left-0 right-0 top-0 absolute items-center justify-center p-8">
-          <h2 className="mb-3 bg-gradient-to-r from-green-300 to-purple-400 bg-clip-text text-5xl font-bold text-transparent">
+        <div className="flex flex-col bottom-0 left-0 right-0 top-0 absolute items-center justify-center p-8 flex-wrap">
+          <h2 className="mb-3 bg-gradient-to-r from-green-300 to-purple-400 bg-clip-text text-5xl font-bold text-transparent fact-text">
             {fact}
           </h2>
         </div>

@@ -74,8 +74,8 @@ const Navbar = () => {
             </li>
             <li className="ml-6 navigation-tab">
               <Link
-                className={router.pathname === "/games" ? "current" : ""}
-                href={"/fact"}
+                className={router.pathname === "/facts" ? "current" : ""}
+                href={"/facts"}
               >
                 Facts
               </Link>

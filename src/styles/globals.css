@@ -93,7 +93,7 @@ body {
 body {
   color: rgb(var(--foreground-rgb));
   font-family: var(--font-mono);
-  background: #000;
+  background: #141414;
 }
 
 a {
@@ -102,12 +102,8 @@ a {
 }
 
 .navbar-background {
-  background-image: linear-gradient(
-    180deg,
-    rgba(39, 39, 39, 0.4) 0%,
-    rgba(39, 39, 39, 0.208) 51.04%,
-    rgba(39, 39, 39, 0) 100%
-  );
+  background-image: linear-gradient(180deg,rgba(0,0,0,.7) 10%,transparent);
+  transition: background-color .4s;
 }
 
 .embla {
@@ -236,7 +232,7 @@ a {
   top: 0px;
   width: 50%;
   height: 100%;
-  background: linear-gradient(90deg, #000000 -0.9%, rgba(0, 0, 0, 0) 100%);
+  background: linear-gradient(90deg, #141414 -0.9%, rgba(0, 0, 0, 0) 100%);
 }
 .overlay_item_bottom {
   position: inherit;
@@ -244,7 +240,7 @@ a {
   bottom: 0%;
   width: 100%;
   height: 50%;
-  background: linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
+  background: linear-gradient(0deg, #141414 0%, rgba(0, 0, 0, 0) 100%);
 }
 .navigation_buttons {
   width: 40px;
@@ -255,7 +251,7 @@ a {
   position: relative;
   padding-top: 56.25%;
 }
-.react-player{
+.react-player {
   z-index: 99;
   padding-left: 8px;
   padding-right: 8px;
@@ -265,9 +261,24 @@ a {
 }
 
 .react-player > div {
-  position: absolute; 
+  position: absolute;
 }
 
+.navigation-tab {
+  align-items: center;
+  color: #e5e5e5;
+  display: flex;
+  height: 100%;
+  position: relative;
+  transition: color 0.4s;
+}
+.navigation-tab:hover {
+  color: #fff;
+}
+.navigation-tab a.current {
+  color: #fff;
+  font-weight: bold;
+}
 
 @media (prefers-color-scheme: dark) {
   html {
@@ -275,40 +286,38 @@ a {
   }
 }
 @media only screen and (max-width: 1440px) {
-  .embla{
+  .embla {
     margin-bottom: -40px;
   }
-  .embla_text{
-    bottom:130px;
+  .embla_text {
+    bottom: 130px;
   }
-  .embla_title{
+  .embla_title {
     font-size: 3.7rem;
     line-height: 1.1em;
     max-height: 2.3em;
   }
-  .embla_paragraph{
+  .embla_paragraph {
     font-size: 1.2rem;
     line-height: 58px;
     max-height: 60px;
   }
-  .embla_dots_container{
-    bottom:80px;
+  .embla_dots_container {
+    bottom: 80px;
   }
 }
 @media only screen and (min-width: 768px) {
-  .embla__slide__img{
-    max-height:  calc(100vw * 0.5625);;
+  .embla__slide__img {
+    max-height: calc(100vw * 0.5625);
   }
 }
 @media only screen and (max-width: 600px) {
-  img{
-    height: revert-layer;
-  }
+
   .embla {
-    margin-bottom: 30px;
+    margin-bottom: 120px;
   }
   .embla_text {
-    bottom: 0;
+    bottom: 120px;
     left: 60px;
   }
   .embla_title {
@@ -317,29 +326,54 @@ a {
     overflow: hidden;
     text-overflow: ellipsis;
   }
-  .embla_paragraph{
-    font-size: .8rem;
+  .embla_paragraph {
+    font-size: 0.8rem;
     line-height: 20px;
     max-height: 41px;
   }
-  .embla_dots_container{
-    bottom: -12px;
+  .embla_dots_container {
+    bottom: -32px;
     left: 35px;
   }
-  .embla__dot{
+  .embla__dot {
     width: 18px !important;
   }
-  .navbar-wrapper{
+  .navbar-background {
+    background-color: #000000;
+  }
+  .navbar-wrapper {
     width: 100%;
   }
-  .navbar-container{
+  .navbar-container {
     margin-top: 0;
     margin-left: 0;
+  }
+  .navigation-tab {
+    font-size: 12px;
+  }
+  .catflix-text {
+    font-size: 2rem;
+    margin-right: 0;
+  }
+  .logo {
+    width: 50px;
+    height: 60px;
+  }
+  .related-videos {
+   padding-left: 0.5rem;
+   padding-right: 0.5rem; 
+  }
+  .play-button {
+    height: 40px;
+    padding: .5rem;
+  }
+  .play-button > svg {
+    width: 20px;
   }
 }
 
 @media only screen and (max-width: 400px) {
-  .embla_dots_container{
+  .embla_dots_container {
     bottom: -24px;
   }
 }
